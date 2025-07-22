@@ -46,7 +46,7 @@ df_eventos = df[[
     "numero_del_servicio", "fecha_de_servicio", "fecha_cirugia", "fecha_de_creacion",
     "tiempo_de_promesa", "asignado", "aceptado", "llegado", "reprogramar",
     "cancelado", "atendido", "finalizado", "tiempo_total_creacion_final",
-    "tiempo_real"
+    "tiempo_real","recibido_picking"
 ]].drop_duplicates()
 
 # Cargar los DataFrames a PostgreSQL
