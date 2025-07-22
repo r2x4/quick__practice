@@ -21,7 +21,7 @@ df_clientes = df[[
     "Correo Cliente", "Tipo de Documento", "Municipio", "Departamento"
 ]].drop_duplicates()
 
-# Tabla: servicios (AGREGADO: codigo_cedi y Documento del Conductor)
+# Tabla: servicios
 df_servicios = df[[ 
     "numero_del_servicio", "estado", "creado_por", "documento_cliente",
     "fecha_de_servicio", "direccion_servicio", "barrio", "zona",
@@ -39,10 +39,12 @@ df_conductores = df[[
     "Documento del Conductor del Recurso", "Conductor", "Recurso"
 ]].drop_duplicates()
 
-# Tabla: eventos
+# Tabla: eventos con columnas de cumplimiento
 df_eventos = df[[ 
     "numero_del_servicio", "llegado", "reprogramar", "cancelado", "atendido",
-    "finalizado", "aceptado", "asignado", "recibido_picking"
+    "finalizado", "aceptado", "asignado", "recibido_picking",
+    "cumplio_creado", "cumplio_aceptado", "cumplio_asignado", 
+    "cumplio_llegado", "cumplio_atendido", "cumplio_finalizado"
 ]].drop_duplicates()
 
 # Subir a PostgreSQL
