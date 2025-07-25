@@ -44,10 +44,10 @@ df_conductores = df[[
 # Preparar tabla: eventos del servicio
 df_eventos = df[[ 
     "numero_del_servicio", "fecha_de_servicio", "fecha_cirugia", "fecha_de_creacion",
-    "tiempo_de_promesa", "asignado", "aceptado", "llegado", "reprogramar",
-    "cancelado", "atendido", "finalizado", "tiempo_total_creacion_final",
-    "tiempo_real","recibido_picking"
+    "tiempo_de_promesa", "asignado", "atendido", "finalizado",
+    "tiempo_total_creacion_final", "tiempo_real", "recibido_picking"
 ]].drop_duplicates()
+
 
 # Cargar los DataFrames a PostgreSQL
 df_clientes.to_sql("clientes", engine, index=False, if_exists="replace")
