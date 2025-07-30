@@ -42,11 +42,25 @@ df_conductores = df[[
 ]].drop_duplicates()
 
 # Preparar tabla: eventos del servicio
-df_eventos = df[[ 
+columnas_eventos = [
     "numero_del_servicio", "fecha_de_servicio", "fecha_cirugia", "fecha_de_creacion",
-    "tiempo_de_promesa", "asignado", "atendido", "finalizado",
-    "tiempo_total_creacion_final", "tiempo_real", "recibido_picking"
-]].drop_duplicates()
+    "tiempo_de_promesa", "asignado", "atendido", "finalizado", "recibido_picking",
+    "duracion_total", "tiempo_desplazamiento", "tiempo_atencion",
+    "tiempo_atencion_min", "duracion_total_min", "tiempo_desplazamiento_min",
+    "tiempo_total_creacion_final", "tiempo_total_creacion_final_hrs",
+    "cumple_promesa", "tiempo_real", "cumplimiento_promesa",
+    "diferencia_total_creacion_final_hrs", "diferencia_total_creacion_final_min",
+    "diferencia_tiempo_real_teorico_hrs", "diferencia_tiempo_real_teorico_min",
+    "velocidad_servicio", "nivel_cumplimiento", "desempeno_operador",
+    "categoria_servicio", "estado_cumplimiento"
+]
+
+# Validación: solo incluir columnas que sí existen en el DataFrame
+columnas_existentes = [col for col in columnas_eventos if col in df.columns]
+
+# Crear el DataFrame final
+df_eventos = df[columnas_existentes].drop_duplicates()
+
 
 
 # Cargar los DataFrames a PostgreSQL
